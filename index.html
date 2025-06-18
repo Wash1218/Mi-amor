@@ -4,18 +4,23 @@
   <meta charset="UTF-8">
   <title>Mi Amor Galáctico</title>
   <style>
-    * {
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    * {
       box-sizing: border-box;
     }
 
     body {
-      overflow: hidden;
       background: url('https://i.gifer.com/origin/fc/fc00de23793db89812f60cc77a245f60_w200.gif') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Arial', sans-serif;
       color: #b84dff;
+      position: relative;
     }
 
     .center-text {
@@ -109,7 +114,6 @@
       }
     }
 
-    /* 🚀 ANIMACIÓN IMÁGENES EN DIAGONAL */
     .corner-img {
       position: absolute;
       width: 120px;
@@ -117,6 +121,7 @@
       opacity: 0;
       animation: moveAcross 8s ease-in-out infinite;
       z-index: 2;
+      pointer-events: none;
     }
 
     .corner-img img {
@@ -187,7 +192,6 @@
   </audio>
 
   <script>
-    // Letras lluvia
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
     canvas.height = window.innerHeight;
@@ -222,7 +226,6 @@
       canvas.height = window.innerHeight;
     });
 
-    // Música con fade
     const audio = document.getElementById("bgMusic");
     const button = document.getElementById("musicToggle");
 
@@ -244,7 +247,6 @@
       }
     }
 
-    // Estrellas
     const starsContainer = document.getElementById("stars");
     for (let i = 0; i < 100; i++) {
       const star = document.createElement("div");
@@ -256,7 +258,6 @@
       starsContainer.appendChild(star);
     }
 
-    // Corazones flotantes
     const heartsContainer = document.getElementById("hearts");
     setInterval(() => {
       const heart = document.createElement("div");
